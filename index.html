@@ -1,112 +1,148 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <title>For Miuu 💖</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        background: #ffe6eb;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        overflow: hidden;
-      }
+<head>
+<meta charset="UTF-8">
+<title>For Miuu 💖</title>
 
-      .container {
-        margin-top: 120px;
-      }
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  text-align: center;
+}
 
-      h1 {
-        color: #ff4d6d;
-        font-size: 32px;
-      }
+.container {
+  margin-top: 80px;
+  position: relative;
+  z-index: 2;
+}
 
-      p {
-        font-size: 18px;
-        color: #444;
-      }
+h1 {
+  color: white;
+  font-size: 36px;
+}
 
-      button {
-        padding: 12px 25px;
-        margin: 15px;
-        font-size: 18px;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: 0.2s;
-      }
+p {
+  color: white;
+  font-size: 18px;
+}
 
-      #yes {
-        background-color: #ff4d6d;
-        color: white;
-      }
+/* gif */
+.gif {
+  width: 200px;
+  border-radius: 20px;
+  margin: 20px 0;
+}
 
-      #yes:hover {
-        background-color: #ff1e4d;
-        transform: scale(1.1);
-      }
+/* button */
+button {
+  padding: 12px 25px;
+  margin: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-      #no {
-        background-color: #ccc;
-        position: absolute;
-      }
+#yes {
+  background: #ff4d6d;
+  color: white;
+}
 
-      img {
-        width: 200px;
-        margin-top: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Miuu ơi cho anh xin lỗi nhóooo 😭</h1>
-      <p>Miuu không chọn hoặc thoát là tha lỗi cho anh đó 💔</p>
+#yes:hover {
+  transform: scale(1.2);
+}
 
-      <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" />
+#no {
+  position: absolute;
+  background: #ccc;
+}
 
-      <br />
+/* heart */
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: float 5s linear infinite;
+}
 
-      <button id="yes">Em chấp nhận 💖</button>
-      <button id="no">Không bao giờ 😡</button>
+@keyframes float {
+  from {
+    transform: translateY(100vh);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Miuu ơi cho anh xin lỗi nhóooo 😭</h1>
+  <p>Miuu không chọn là tha lỗi cho anh đó 💔</p>
+
+  <!-- GIF dễ thương -->
+  <img class="gif" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
+
+  <br>
+
+  <button id="yes">Em chấp nhận 💖</button>
+  <button id="no">Không 😡</button>
+</div>
+
+<audio id="music" src="https://www.fesliyanstudios.com/play-mp3/387"></audio>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const music = document.getElementById("music");
+
+// nút chạy
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+// tim bay
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 10 + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}
+
+setInterval(createHeart, 300);
+
+// click YES
+yesBtn.addEventListener("click", () => {
+  music.play();
+
+  document.body.innerHTML = `
+    <div style="margin-top:120px">
+      <h1 style="color:white">Miuu dễ thương nhất 💖</h1>
+      <p style="color:white;font-size:20px">
+        Anh hứa sẽ không làm Miuu buồn nữa 😭
+      </p>
+      <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" 
+           style="width:220px;border-radius:20px;margin-top:20px">
     </div>
+  `;
+});
+</script>
 
-    <script>
-      const noBtn = document.getElementById("no");
-      const yesBtn = document.getElementById("yes");
-
-      noBtn.addEventListener("mouseover", () => {
-        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
-      });
-
-      let messages = [
-        "Miuu ơi đừng giận nữa mà 😭",
-        "Anh biết sai rồi mà 🥺",
-        "Cho anh cơ hội nha Miuu 💔",
-        "Anh hứa không tái phạm nữa đâu 😭",
-        "Miuu mà không tha là anh buồn lắm luôn đó 🥹",
-        "Thôi màaaa 😭😭😭",
-      ];
-
-      let i = 0;
-
-      yesBtn.addEventListener("click", () => {
-        if (i < messages.length) {
-          alert(messages[i]);
-          i++;
-        } else {
-          document.body.innerHTML = `
-        <div style="margin-top:150px">
-          <h1>Cảm ơn Miuu 💖</h1>
-          <p>Anh biết Miuu dễ thương nhất mà 😘</p>
-          <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
-        </div>
-      `;
-        }
-      });
-    </script>
-  </body>
+</body>
 </html>
