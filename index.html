@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>For Miuu 💖</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #ffe6eb;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .container {
+        margin-top: 120px;
+      }
+
+      h1 {
+        color: #ff4d6d;
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 18px;
+        color: #444;
+      }
+
+      button {
+        padding: 12px 25px;
+        margin: 15px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      #yes {
+        background-color: #ff4d6d;
+        color: white;
+      }
+
+      #yes:hover {
+        background-color: #ff1e4d;
+        transform: scale(1.1);
+      }
+
+      #no {
+        background-color: #ccc;
+        position: absolute;
+      }
+
+      img {
+        width: 200px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Miuu ơi cho anh xin lỗi nhóooo 😭</h1>
+      <p>Miuu không chọn hoặc thoát là tha lỗi cho anh đó 💔</p>
+
+      <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" />
+
+      <br />
+
+      <button id="yes">Em chấp nhận 💖</button>
+      <button id="no">Không bao giờ 😡</button>
+    </div>
+
+    <script>
+      const noBtn = document.getElementById("no");
+      const yesBtn = document.getElementById("yes");
+
+      noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+      });
+
+      let messages = [
+        "Miuu ơi đừng giận nữa mà 😭",
+        "Anh biết sai rồi mà 🥺",
+        "Cho anh cơ hội nha Miuu 💔",
+        "Anh hứa không tái phạm nữa đâu 😭",
+        "Miuu mà không tha là anh buồn lắm luôn đó 🥹",
+        "Thôi màaaa 😭😭😭",
+      ];
+
+      let i = 0;
+
+      yesBtn.addEventListener("click", () => {
+        if (i < messages.length) {
+          alert(messages[i]);
+          i++;
+        } else {
+          document.body.innerHTML = `
+        <div style="margin-top:150px">
+          <h1>Cảm ơn Miuu 💖</h1>
+          <p>Anh biết Miuu dễ thương nhất mà 😘</p>
+          <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+        </div>
+      `;
+        }
+      });
+    </script>
+  </body>
+</html>
